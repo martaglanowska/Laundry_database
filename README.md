@@ -6,7 +6,7 @@ How does the laundry work? Each customer is registered in the database – they 
 
 During one visit, the customer can do several washes, for each of them they choose one service they want to use (the Services table can be understood as a price list). The Services table is a list of possible programs for each washing machine.
 
-Selections and payments are made using touch screens. The laundry room offers – for each wash – free washing powder (of lower quality than that brought from outside or bought in the shop next to the laundry) and the possibility of free drying (pre-drying).
+Selections and payments are made using touch screens. The laundry offers – for each wash – free washing powder (of lower quality than that brought from outside or bought in the shop next to the laundry) and the possibility of free drying (pre-drying).
 
 If the customer wants to do only part of the wash on the invoice, they must include it as a separate visit.
 
