@@ -31,3 +31,7 @@ Each type of fabric (e.g. cotton, delicates) can be washed at several temperatur
 * several washes can be done during one visit (occupying several washing machines at once)
 * one invoice can be taken for one visit
 * for different fabrics and temperatures the maximum permissible load for different washing machines may be different
+
+## Schema
+
+![schema](schema.png)
