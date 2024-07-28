@@ -12,17 +12,6 @@ If the customer wants to do only part of the wash on the invoice, they must incl
 
 Each type of fabric (e.g. cotton, delicates) can be washed at several temperatures and times (dependence between the Fabrics and Programs table).
 
-## Units
-
-| Feature                  | Unit   |
-|--------------------------|--------|
-| spin speed               | rpm    |
-| washing time             | min    |
-| temperature              | &deg;C |
-| annual power consumption | kWh    |
-| noise level              | dB     |
-| max load capacity        | kg     |
-
 ## Semantic assumptions
 * one type of fabric can be washed at different temperatures and times
 * each washing machine can have a different set of programs
@@ -35,3 +24,14 @@ Each type of fabric (e.g. cotton, delicates) can be washed at several temperatur
 ## Schema
 
 ![schema](schema.png)
+
+## Units
+
+| Feature                  | Unit   |
+|--------------------------|--------|
+| spin speed               | rpm    |
+| washing time             | min    |
+| temperature              | &deg;C |
+| annual power consumption | kWh    |
+| noise level              | dB     |
+| max load capacity        | kg     |
