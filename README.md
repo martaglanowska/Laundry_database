@@ -10,22 +10,26 @@ Selections and payments are made using touch screens. The laundry offers – for
 
 If the customer wants to do only part of the wash on the invoice, they must include it as a separate visit.
 
-Each type of fabric (e.g. cotton, delicates) can be washed at several temperatures and times (dependence between the Fabrics and Programs table).
+Each type of fabric (e.g. cotton, delicates) can be washed at several temperatures and times (relationship between the Fabrics and Programs table).
 
 ## Semantic assumptions
-* one type of fabric can be washed at different temperatures and times
-* each washing machine can have a different set of programs
-* several complaints can be submitted for one wash (e.g. one regarding the equipment and the other regarding the price), they do not have to be submitted in the same way (by email/in person/via the website)
-* one bag of free additional washing powder and free drying are provided for each wash
-* several washes can be done during one visit (occupying several washing machines at once)
-* one invoice can be taken for one visit
-* for different fabrics and temperatures the maximum permissible load for different washing machines may be different
+* One type of fabric can be washed at different temperatures and times.
+* Each washing machine can have a different set of programs.
+* Several complaints can be submitted for one wash (e.g. one regarding the equipment and the other regarding the price), they do not have to be submitted in the same way (by email/in person/via the website).
+* One bag of free additional washing powder and free drying are provided for each wash.
+* Several washes can be done during one visit (occupying several washing machines at once).
+* One invoice can be taken for one visit.
+* For different fabrics and temperatures the maximum permissible load for different washing machines may be different.
 
 ## Schema
+
+The database project created on the basis of the above guidelines is presented below.
 
 ![schema](schema.png)
 
 ## Units
+
+The physical units adopted for attributes are shown in the table.
 
 | Feature                  | Unit   |
 |--------------------------|--------|
