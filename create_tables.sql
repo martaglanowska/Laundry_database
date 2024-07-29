@@ -101,4 +101,4 @@ CONSTRAINT comp_sub_meth_ch CHECK(submission_method IN ('directly','email','webs
 CONSTRAINT comp_comp_cat_ch CHECK(complaint_category IN ('equipment','price','cleanliness','service','additions','failure','other')),
 CONSTRAINT comp_whet_cons_ch CHECK(whether_considered IN ('yes','no')));
 
-commit;
+COMMIT;
