@@ -39,3 +39,11 @@ The physical units adopted for attributes are shown in the table.
 | annual power consumption | kWh    |
 | noise level              | dB     |
 | max load capacity        | kg     |
+
+## Technologies
+
+**Oracle Database version:** Oracle Database 21c Express Edition for Windows x64
+
+**Basic administrative tasks:** SQL*Plus 
+
+**GUI:** SQL Developer 23.1.1
