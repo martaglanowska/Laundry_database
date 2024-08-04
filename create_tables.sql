@@ -4,19 +4,19 @@ fabric_type VARCHAR2(40) CONSTRAINT fabr_type_nn NOT NULL,
 color_category VARCHAR2(9) CONSTRAINT fsbr_col_cat_nn NOT NULL,
 spin_speed NUMBER(4),
 CONSTRAINT fabrics_pk PRIMARY KEY(fabric_id),
-CONSTRAINT fabr_col_cat_ch CHECK(color_category IN ('white','delicates','resistant')));
+CONSTRAINT fabr_col_cat_ch CHECK(color_category IN ('white','light','dark')));
 
 CREATE TABLE programs (
 program_no NUMBER,
 fabric_id NUMBER,
 washing_time NUMBER(3) CONSTRAINT prog_wash_time_nn NOT NULL,
 temperature NUMBER CONSTRAINT prog_temp_nn NOT NULL,
-additional_rinsing CHAR(3) CONSTRAINT prog_add_rins_nn NOT NULL,
+additional_rinsing CHAR(1) CONSTRAINT prog_add_rins_nn NOT NULL,
 CONSTRAINT programs_pk PRIMARY KEY(program_no),
 CONSTRAINT prog_fabr_id_fk FOREIGN KEY (fabric_id) REFERENCES fabrics(fabric_id),
 CONSTRAINT prog_wash_time_ch CHECK(washing_time > 0),
 CONSTRAINT prog_temp_ch CHECK(temperature > 0 AND temperature < 100),
-CONSTRAINT prog_add_rins_ch CHECK(additional_rinsing IN ('yes','no')));
+CONSTRAINT prog_add_rins_ch CHECK(additional_rinsing IN ('y','n')));
 
 CREATE TABLE machines (
 machine_no NUMBER,
@@ -26,9 +26,9 @@ annual_power_cons NUMBER(3),
 noise_level NUMBER(2),
 purchase_date DATE,
 CONSTRAINT machines_pk PRIMARY KEY(machine_no),
+CONSTRAINT mach_ener_cl_ch CHECK(energy_class IN ('A','B','C','D','E','F')),
 CONSTRAINT mach_ann_pow_cons_ch CHECK(annual_power_cons > 0),
-CONSTRAINT mach_noise_lev_ch CHECK(noise_level > 0),
-CONSTRAINT mach_ener_cl_ch CHECK(energy_class IN ('A','A+','A++','A+++','B','C','D')));
+CONSTRAINT mach_noise_lev_ch CHECK(noise_level > 0));
 
 CREATE TABLE services (
 service_id NUMBER,
@@ -51,6 +51,8 @@ sex CHAR(1) CONSTRAINT cust_sex_nn NOT NULL,
 phone_no VARCHAR2(15),
 bank_account_no CHAR(26) CONSTRAINT cust_bank_acc_no_nn NOT NULL,
 CONSTRAINT customers_pk PRIMARY KEY(customer_id),
+CONSTRAINT cust_name_surname_ch CHECK(first_name = INITCAP(first_name) AND surname = INITCAP(surname)),
+CONSTRAINT cust_pesel_u UNIQUE(pesel),
 CONSTRAINT cust_pesel_ch CHECK(SUBSTR(pesel,1,1) BETWEEN '0' AND '9'
 			AND SUBSTR(pesel,2,1) BETWEEN '0' AND '9'
 			AND SUBSTR(pesel,3,1) BETWEEN '0' AND '9'
@@ -62,43 +64,43 @@ CONSTRAINT cust_pesel_ch CHECK(SUBSTR(pesel,1,1) BETWEEN '0' AND '9'
 			AND SUBSTR(pesel,9,1) BETWEEN '0' AND '9'
 			AND SUBSTR(pesel,10,1) BETWEEN '0' AND '9'
 			AND SUBSTR(pesel,11,1) BETWEEN '0' AND '9'),
-CONSTRAINT cust_sex_ch CHECK(sex IN ('F','M')));
+CONSTRAINT cust_sex_ch CHECK(sex IN ('f','m')));
 
 CREATE TABLE visits (
 visit_id NUMBER,
 customer_id CHAR(6),
-date_time DATE CONSTRAINT vis_date_time_nn NOT NULL,
-visit_rating VARCHAR2(12),
-whether_invoice CHAR(3) CONSTRAINT vis_whet_inv_nn NOT NULL,
+date_time TIMESTAMP CONSTRAINT vis_date_time_nn NOT NULL,
+visit_rating VARCHAR2(9),
+whether_invoice CHAR(1) CONSTRAINT vis_whet_inv_nn NOT NULL,
 CONSTRAINT visits_pk PRIMARY KEY(visit_id),
 CONSTRAINT vis_cust_id_fk FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
 CONSTRAINT vis_rating_ch CHECK(visit_rating IN ('very good','good','average','bad','very bad')),
-CONSTRAINT vis_whet_inv_ch CHECK(whether_invoice IN ('yes','no')));
+CONSTRAINT vis_whet_inv_ch CHECK(whether_invoice IN ('y','n')));
 
 CREATE TABLE washes (
 wash_id NUMBER,
 visit_id NUMBER,
 service_id NUMBER,
-additional_powder CHAR(3) CONSTRAINT wash_add_powd_nn NOT NULL,
-free_drying CHAR(3) CONSTRAINT wash_free_dry_nn NOT NULL,
+additional_powder CHAR(1) CONSTRAINT wash_add_powd_nn NOT NULL,
+free_drying CHAR(1) CONSTRAINT wash_free_dry_nn NOT NULL,
 CONSTRAINT washes_pk PRIMARY KEY(wash_id),
 CONSTRAINT wash_visit_id_fk FOREIGN KEY (visit_id) REFERENCES visits(visit_id),
 CONSTRAINT wash_serv_id_fk FOREIGN KEY (service_id) REFERENCES services(service_id),
-CONSTRAINT wash_add_powd_ch CHECK(additional_powder IN ('yes','no')),
-CONSTRAINT wash_free_dry_ch CHECK(free_drying IN ('yes','no')));
+CONSTRAINT wash_add_powd_ch CHECK(additional_powder IN ('y','n')),
+CONSTRAINT wash_free_dry_ch CHECK(free_drying IN ('y','n')));
 
 CREATE TABLE complaints (
 complaint_id NUMBER,
 wash_id NUMBER,
 submission_date DATE CONSTRAINT comp_subm_date_nn NOT NULL,
-submission_method VARCHAR2(10),
-complaint_category VARCHAR2(8),
+submission_method VARCHAR2(8),
+complaint_category VARCHAR2(11),
 complaint_description VARCHAR2(150),
-whether_considered CHAR(3) CONSTRAINT comp_whet_cons_nn NOT NULL,
+whether_considered CHAR(1) CONSTRAINT comp_whet_cons_nn NOT NULL,
 CONSTRAINT complaints_pk PRIMARY KEY(complaint_id),
 CONSTRAINT comp_wash_id_fk FOREIGN KEY (wash_id) REFERENCES washes(wash_id),
 CONSTRAINT comp_sub_meth_ch CHECK(submission_method IN ('directly','email','website')),
 CONSTRAINT comp_comp_cat_ch CHECK(complaint_category IN ('equipment','price','cleanliness','service','additions','failure','other')),
-CONSTRAINT comp_whet_cons_ch CHECK(whether_considered IN ('yes','no')));
+CONSTRAINT comp_whet_cons_ch CHECK(whether_considered IN ('y','n')));
 
 COMMIT;
