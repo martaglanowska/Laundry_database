@@ -176,7 +176,6 @@ INSERT INTO complaints VALUES(complaints_seq.nextval, 13, to_date('07/09/2021', 
 INSERT INTO complaints VALUES(complaints_seq.nextval, 16, to_date('08/09/2021', 'dd/mm/yyyy'), 'website', 'equipment', 'Small capacity washing machine.', 'n');
 INSERT INTO complaints VALUES(complaints_seq.nextval, 16, to_date('08/09/2021', 'dd/mm/yyyy'), 'website', 'service', 'There was no one who could help me operate the washing machine.', 'n');
 
-
 --commit changes
 
 COMMIT;
