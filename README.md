@@ -46,4 +46,4 @@ The physical units adopted for attributes are shown in the table.
 
 **Basic administrative tasks:** SQL*Plus 
 
-**GUI:** SQL Developer 23.1.1
+**GUI:** SQL Developer 23.1.1 with JDK 11 included
