@@ -117,15 +117,15 @@ CREATE SEQUENCE visits_seq
 INCREMENT BY 1
 START WITH 1;
 
-INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('10-Sie-21 14:10:10'), 'good', 'n');
-INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('12-Sie-21 8:12:00'), 'average', 'y');
-INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('01-Wrz-21 12:46:08'), 'very good', 'n');
-INSERT INTO visits VALUES(visits_seq.nextval, 111114, TO_TIMESTAMP('03-Wrz-21 13:14:08'), 'very good', 'n');
-INSERT INTO visits VALUES(visits_seq.nextval, 111112, TO_TIMESTAMP('03-Wrz-21 16:40:10'), 'bad', 'y');
-INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('05-Wrz-21 09:32:00'), 'average', 'y');
-INSERT INTO visits VALUES(visits_seq.nextval, 111114, TO_TIMESTAMP('05-Wrz-21 10:46:08'), 'good', 'n');
-INSERT INTO visits VALUES(visits_seq.nextval, 111113, TO_TIMESTAMP('05-Wrz-21 13:50:49'), 'bad', 'n');
-INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('10-Wrz-21 15:47:30'), 'very good', 'y');
+INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('21-Sie-10 14:10:10'), 'good', 'n');
+INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('21-Sie-12 8:12:00'), 'average', 'y');
+INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('21-Wrz-01 12:46:08'), 'very good', 'n');
+INSERT INTO visits VALUES(visits_seq.nextval, 111114, TO_TIMESTAMP('21-Wrz-03 13:14:08'), 'very good', 'n');
+INSERT INTO visits VALUES(visits_seq.nextval, 111112, TO_TIMESTAMP('21-Wrz-03 16:40:10'), 'bad', 'y');
+INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('21-Wrz-05 09:32:00'), 'average', 'y');
+INSERT INTO visits VALUES(visits_seq.nextval, 111114, TO_TIMESTAMP('21-Wrz-05 10:46:08'), 'good', 'n');
+INSERT INTO visits VALUES(visits_seq.nextval, 111113, TO_TIMESTAMP('21-Wrz-05 13:50:49'), 'bad', 'n');
+INSERT INTO visits VALUES(visits_seq.nextval, 111111, TO_TIMESTAMP('21-Wrz-10 15:47:30'), 'very good', 'y');
 
 --populate Washes table
 
@@ -175,6 +175,7 @@ INSERT INTO complaints VALUES(complaints_seq.nextval, 13, to_date('07/09/2021', 
 INSERT INTO complaints VALUES(complaints_seq.nextval, 13, to_date('07/09/2021', 'dd/mm/yyyy'), 'directly', 'failure', 'The clothes dryer was broken.', 'y');
 INSERT INTO complaints VALUES(complaints_seq.nextval, 16, to_date('08/09/2021', 'dd/mm/yyyy'), 'website', 'equipment', 'Small capacity washing machine.', 'n');
 INSERT INTO complaints VALUES(complaints_seq.nextval, 16, to_date('08/09/2021', 'dd/mm/yyyy'), 'website', 'service', 'There was no one who could help me operate the washing machine.', 'n');
+
 
 --commit changes
 
