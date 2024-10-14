@@ -47,3 +47,5 @@ The physical units adopted for attributes are shown in the table.
 **Basic administrative tasks:** SQL*Plus 
 
 **GUI:** SQL Developer 23.1.1 with JDK 11 included
+
+**Record of results:** Jupyter Notebook 6.5.2 based on Python 3.10 with cx_Oracle 8.3.0 module installed
